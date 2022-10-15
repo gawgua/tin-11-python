@@ -9,7 +9,7 @@
 	<nav transition:horizontalSlide={{ duration: 500 }}>
 		<ul>
 			<li>
-				<button class="top-10 border-yellow border-8 " on:click={() => (showChildren = !showChildren)}>About</button>
+				<button class="top-10 bg-yellow border-spacing-1 hover:bg-blue" on:click={() => (showChildren = !showChildren)}>About</button>
 				<a style:visibility={showChildren ? "visible" : "hidden"} href="https://gawgua.github.io">wah</a>
 			</li>
 		</ul>
