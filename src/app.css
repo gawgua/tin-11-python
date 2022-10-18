@@ -9,7 +9,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgb(110, 106, 106);
+  color: rgb(240, 119, 119);
   background-color: #635e5e;
 
   font-synthesis: none;
@@ -17,9 +17,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  white-space: pre-wrap;
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   display: flex;
   place-items: center;
@@ -27,3 +30,10 @@ body {
   min-height: 100vh;
 }
 
+button{
+  z-index: 2;
+}
+
+nav{
+  z-index: 1;
+}

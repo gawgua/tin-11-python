@@ -3,19 +3,40 @@
 
 name: publish
 permissions:
-  contents: write
-on: 
+  contents: read
+on:
   push:
     branches:
-      - 'main'
+      - "main"
     paths:
-      - 'src/**'
-      - 'public/**'
-      - 'index.html'
-      - 'package.json'
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "package.json"
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Compile to JS, HTML and CSS
+        shell: bash
+        run: |
+          npm ci 
+          npm run build
+
   deploy:
+    needs: build
     permissions:
       pages: write
       id-token: write
@@ -26,15 +47,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Compile to JS, HTML and CSS
-        shell: bash
-        run: |
-          npm ci 
-          npm run build      
-
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist/
+          
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
-        with: 
-          folder: dist
+        id: deployment
+        uses: actions/deploy-pages@v1

@@ -1,15 +1,19 @@
 <script>
+	import MenuButton from "./MenuButton.svelte";
 	import { horizontalSlide } from "./transition";
 	export let showChildren = false;
 	export let showSidebar = false;
+	export let switchState = () => {showSidebar = !showSidebar}
 </script>
 
-<button class="bg-green rounded-lg top-2 block absolute left-6" on:click={() => (showSidebar = !showSidebar)}>show sidebar</button>
+<MenuButton onToggle={switchState}/>
 {#if showSidebar}
 	<nav transition:horizontalSlide={{ duration: 500 }}>
 		<ul>
 			<li>
-				<button class="top-10 bg-yellow border-spacing-1 hover:bg-blue" on:click={() => (showChildren = !showChildren)}>About</button>
+				<button class="top-10 bg-yellow border-spacing-1 hover:bg-blue" on:click={() => (showChildren = !showChildren)}
+					>About</button
+				>
 				<a style:visibility={showChildren ? "visible" : "hidden"} href="https://gawgua.github.io">wah</a>
 			</li>
 		</ul>
@@ -22,16 +26,12 @@
 		top: 0;
 		left: 0;
 		height: 100%;
-		padding: 2rem 1rem 0.6rem;
+		padding: 5rem 3rem 0.6rem;
 		border-left: 3px solid #aaa;
 		background: #fff;
 		overflow-y: auto;
-		width: 15rem;
-		z-index: 1;
-	}
-
-	button {
-		z-index: 2;
+		width: 12rem;
+		z-index: 0;
 	}
 
 	a {
