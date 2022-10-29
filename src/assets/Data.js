@@ -1,4 +1,4 @@
-export const db = {
+export const code = {
 	b2_1: "print('Python is a programming language that lets you work more quickly and integrate your systems more effectively')",
 	b2_3: 'print("""\n**********\n*        *\n*        *\n**********\n""")',
 	b2_4: "print('Goodbye\\n')\nprint('See you again')",
@@ -23,7 +23,7 @@ export const db = {
 	b8_2: "n = int(input())\ndays = 0\n\nwhile n < 1_000_000:\n    n *= 2\n    days += 1\n\nprint(days)",
 	b8_3: 't = float(input())\n\nfor i in range(0, 10):\n    t += t * 0.07\n    print(t + "trieu dong")',
 	th1_1:
-		"a = float(input('a = '))\nb = float(input('b = '))\n\nprint(f'Nghi\u00e1\u00bb\u2021m c\u00e1\u00bb\u00a7a ph\u00c6\u00b0\u00c6\u00a1ng tr\u00c3\u00acnh l\u00c3\u00a0: {-b / a}')",
+		"a = float(input('a = '))\nb = float(input('b = '))\n\nprint(f'Nghi\u1ec7m c\u1ee7a ph\u01b0\u01a1ng tr\u00ecnh l\u00e0: {-b / a}')",
 	th1_2: "from math import sqrt\n\na = float(input())\nb = float(input())\n\nket_qua = sqrt(-b / a)\n\nprint(ket_qua)",
 	th1_3: "n = int(input())\na = n // 10\nb = n % 10\n\nprint(f'Tong cac chu so cua so {n} bang {a + b}')",
 	th1_4: "a = list(map(int, input()))\n\ntotal = 0\nfor i in a:\n    total += i\n\nprint(total)",
@@ -46,14 +46,14 @@ export const db = {
 	th2_8: "a = input()\n\nif a.lower() != a.upper():\n    print('YES')\nelse:\n    print('NO')",
 	th2_9:
 		'a = int(input())\nb = int(input())\nc = int(input())\n\nif (a + b >= c) or (a + c >= b) or (b + c >= a):\n    if a == b and b == c:\n        print("DEU")\n    elif a == b or b == c or a == c:\n        print("CAN")\n    elif (a**2 + b**2 == c**2) or (a**2 + c**2 == b**2) or (c**2 + b**2 == a**2):\n        print("VUONG")\n    else:\n        print("THUONG")',
-	"th3_1.2": "n = int(input('n = '))\n\nfor i in range(1, 11):\n    print(f\"{n} x {i} = {n * i}\")",
-	"th3_2.1":
+	th3_1_2: "n = int(input('n = '))\n\nfor i in range(1, 11):\n    print(f\"{n} x {i} = {n * i}\")",
+	th3_2_1:
 		"pi = 1\na = 1\nfor i in range(1, 1000000):\n    a = a + 2\n    if i % 2 == 1:\n        pi -= 1 / a\n    else:\n        pi += 1 / a\n\nprint(4 * pi)",
-	"th3_2.2":
+	th3_2_2:
 		"from math import factorial\n\ne = 2\nn = int(input())\n\nfor i in range(2, n + 1):\n    e += 1/factorial(n)\n\nprint(e)",
-	"th3_2.3": "n = int(input())\nw = 0\n\nfor i in range(1, n + 1):\n    if n % i == 0:\n        w += 1\n\nprint(w)",
-	"th3_3.2": "for i in range(1, 11):\n    for j in range(0, 100, 10):\n        print(i + j, end=' ')\n    print()",
-	"th3_3.3": "for i in range(100, 0, -1):\n    if i % 10 == 0:\n        print()\n    print(i, end=' ')",
+	th3_2_3: "n = int(input())\nw = 0\n\nfor i in range(1, n + 1):\n    if n % i == 0:\n        w += 1\n\nprint(w)",
+	th3_3_2: "for i in range(1, 11):\n    for j in range(0, 100, 10):\n        print(i + j, end=' ')\n    print()",
+	th3_3_3: "for i in range(100, 0, -1):\n    if i % 10 == 0:\n        print()\n    print(i, end=' ')",
 	th4_1:
 		"n = int(input())\nlenght = len(str(n))\ntotal = 0\n\nfor i in range(0, lenght):\n    total += n % 10\n    n //= 10\n\nprint(lenght)\nprint(total)",
 	th4_2:
@@ -64,4 +64,10 @@ export const db = {
 		"n = int(input())\n\nif n == 1: print('NO')\n\nif n < 4: print('YES')\n\nj: int = 2\nwhile j <= n:\n    if n % j == 0:\n        if j == n: \n            print('YES')\n            break\n        else: \n            print('NO')\n            break\n    j += 1",
 	th4_5:
 		"k = int(input())\n\nfor i in range(2, k + 1):\n    j: int = 2\n    while j <= i:\n        if i % j == 0:\n            if j == i: \n                if k % i == 0:\n                    print(i)\n                    break\n        j += 1",
+	th8_1:
+		"def fib(n):\n \n    if n <= 1:\n        return n\n \n    return fib(n - 1) + fib(n - 2)\n\nn = int(input())\nprint(fib(n))",
+	th8_2:
+		"import math\n\nn = int(input())\nl = list(map(int, input().split()))\ntotal_primeNum = 0\n\ndef isPrime(n):\n    if n == 1: return False\n\n    if n < 4: return True\n\n    i: int = 2\n    while i <= n:\n        if n % i == 0:\n            if i == n: return True\n            else: return False\n        i += 1\n\nfor i in l:\n    if isPrime(i):\n        total_primeNum += 1\n\nnum1 = l[0]\nnum2 = l[1]\ngcd = math.gcd(num1, num2)\n \nfor i in range(2, n - 1):\n    gcd = math.gcd(gcd, l[i])\n\nprint(total_primeNum)\nprint(gcd)",
 };
+
+export const name = {};

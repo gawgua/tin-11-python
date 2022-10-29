@@ -1,5 +1,3 @@
-/* PrismJS 1.29.0
-https://prismjs.com//download.html#themes=prism-okaidia&languages=python */
 var _self =
 		"undefined" != typeof window
 			? window

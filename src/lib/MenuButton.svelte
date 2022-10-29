@@ -7,21 +7,20 @@
 	});
 </script>
 
-<button class="top-6 block fixed left-6" on:click={onToggle()}
-	><div class="menu-button" />
-	<div class="menu-button" />
-	<div class="menu-button" />
-</button>
+<button on:click={onToggle()}>☰</button>
 
 <style>
-	.menu-button {
-		position: absolute;
-		border-top: 2rem;
-		width: 35px;
-		height: 5px;
-		background-color: #000;
-		margin: 6px 0;
-		z-index: 2;
-		border-radius: 0.5rem;
+	button {
+		padding: 5px 3px 5px 3px;
+		font-size: 1.5rem;
+		transform: scaleX(1.4);
+		position: fixed;
+		display: block;
+		top: 1.5rem;
+		left: 1.8rem;
+	}
+
+	button:hover {
+		backdrop-filter: brightness(80%);
 	}
 </style>

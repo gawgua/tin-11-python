@@ -3,15 +3,17 @@
 	import { horizontalSlide } from "./transition";
 	export let showChildren = false;
 	export let showSidebar = false;
-	export let switchState = () => {showSidebar = !showSidebar}
+	export let switchState = () => {
+		showSidebar = !showSidebar;
+	};
 </script>
 
-<MenuButton onToggle={switchState}/>
+<MenuButton onToggle={switchState} />
 {#if showSidebar}
 	<nav transition:horizontalSlide={{ duration: 500 }}>
 		<ul>
 			<li>
-				<button class="top-10 bg-yellow border-spacing-1 hover:bg-blue" on:click={() => (showChildren = !showChildren)}
+				<button class="top-10 bg-yellow border-spacing-1 hover:bg-blue " on:click={() => (showChildren = !showChildren)}
 					>About</button
 				>
 				<a style:visibility={showChildren ? "visible" : "hidden"} href="https://gawgua.github.io">wah</a>
@@ -28,9 +30,9 @@
 		height: 100%;
 		padding: 5rem 3rem 0.6rem;
 		border-left: 3px solid #aaa;
-		background: #fff;
+		background: rgb(70, 68, 68);
 		overflow-y: auto;
-		width: 12rem;
+		width: 18rem;
 		z-index: 0;
 	}
 

@@ -1,35 +1,30 @@
 <script>
-	import './prism/prism.css'
-	import { db } from "../assets/Data";
-	let db_keys = Object.keys(db);
+	import { code } from "../assets/Data";
+	let keys = Object.keys(code);
 	$: index = "";
-	let script = document.createElement("script");
-	script.src = "./prism/prism.js";
-	script.type = "text/javascript";
-	script.setAttribute("defer", "true");
-	document.querySelector("head").append(script);
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="./prism/prism.css" />
+	<link href="./prism/prism.css" rel="stylesheet" />
+	<script src="./prism/prism.js" defer></script>
 </svelte:head>
 <select bind:value={index}>
-	{#each db_keys as k}
-		<option value="{k}">
+	{#each keys as k}
+		<option value={k}>
 			{k}
 		</option>
 	{/each}
 </select>
-<pre class="language-python"> 
+<pre> 
 	{#if index != undefined}
-		<code>{db[`${index}`]}</code>
+		<code>{code[`${index}`]}</code>
 	{/if}
 </pre>
 
 <style>
 	pre {
-		position: fixed;
-		left: 33rem;
-		top: 40%;
+		display: flex;
+		align-content: center;
+		justify-content: center;
 	}
 </style>
