@@ -18,6 +18,7 @@
 		display: block;
 		top: 1.5rem;
 		left: 1.8rem;
+		z-index: 6;
 	}
 
 	button:hover {
