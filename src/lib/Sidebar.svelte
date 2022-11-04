@@ -20,7 +20,7 @@
 		<ul>
 			{#each Object.keys(name) as id}
 				<li>
-					<button on:click={update} id={id} >
+					<button on:click={update} {id} >
 						{name[id]}
 					</button>
 				</li>
