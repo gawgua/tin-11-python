@@ -7,24 +7,30 @@
 	<link href="./prism/prism.css" rel="stylesheet" />
 	<script src="./prism/prism.js" defer></script>
 </svelte:head>
-<div>
+<div class="box">
 	<h1>
 		{name[`${index}`]}
 	</h1>
-	<pre> 
-		<code>{code[`${index}`]}</code>
-	</pre>
+	<code>{code[`${index}`]}</code>
 </div>
 
 <style>
 	div {
-		position: fixed;
-		right: 20%;
-		top: 30%;
+		position: absolute;
+		left: 30%;
+		top: 20%;
 	}
 	h1{
 		position: relative;
-		transform: translate(-55%);
+		margin-bottom: 2rem;
 		font-size: xx-large;
+	}
+
+	.box{
+		padding: 3rem;
+		background-color: black;
+		border-color: red;
+		border-width: .1rem;
+		border-radius: 1rem;
 	}
 </style>

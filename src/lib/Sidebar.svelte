@@ -3,8 +3,9 @@
 	import { name } from "../assets/Data";
 	import MenuButton from "./MenuButton.svelte";
 	import { horizontalSlide } from "./transition";
+	
 	let showChildren = false;
-	let showSidebar = false;
+	let showSidebar = true;
 	let switchState = () => {
 		showSidebar = !showSidebar;
 	};
@@ -14,7 +15,7 @@
 	}
 </script>
 
-<MenuButton onToggle={switchState} />
+<MenuButton onToggle={switchState} {showSidebar} />
 {#if showSidebar}
 	<nav transition:horizontalSlide={{ duration: 500 }}>
 		<ul>
@@ -55,8 +56,11 @@
 		filter: brightness(150%);
 	}
 
-	ul li {
-		padding-left: 1rem;
+	ul li button {
+		text-align: left;
+		display: block;
+		width: 100%;
+		padding-left: 0.5rem;
 		margin-left: 2rem;
 		white-space: nowrap;
 	}

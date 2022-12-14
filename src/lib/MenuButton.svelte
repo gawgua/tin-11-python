@@ -1,5 +1,6 @@
 <script>
 	export let onToggle;
+	export let showSidebar;
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") {
 			onToggle();
@@ -7,7 +8,13 @@
 	});
 </script>
 
-<button on:click={onToggle()}>☰</button>
+<button on:click={onToggle()}>
+	{#if !showSidebar}
+		☰
+	{:else}
+		X
+	{/if}
+</button>
 
 <style>
 	button {
